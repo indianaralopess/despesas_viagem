@@ -61,7 +61,7 @@
 }
 </style><style>
 /* Expense form validation and alignment */
-.field.has-error > label{color:var(--red)}.field.has-error .input,.field.has-error .stepper{border:1px solid #F98989;background:var(--redTint)}.field-error{display:none;margin-top:4px;color:var(--red);font-size:12px;line-height:16px}.field.has-error .field-error{display:block}.participant-field.has-error .participant-picks{outline:1px solid #F98989;background:var(--redTint);border-radius:8px;padding:8px}.split-choice.has-error .split-tabs{outline:1px solid #F98989;background:var(--redTint)}.stepper{width:100%;justify-content:space-between}.stepper input{flex:1;width:auto;min-width:0}.stepper button{flex:none}@media(max-width:720px){#expenseModal .sheet-top{display:grid;grid-template-columns:44px 1fr 44px}#expenseModal .sheet-top h2{text-align:center;grid-column:2;white-space:nowrap}#expenseModal .expense-back{grid-column:1;grid-row:1}#expenseModal .sheet-close{grid-column:3;grid-row:1}.grid2{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}.grid2>*{min-width:0;overflow:hidden}.stepper{width:100%}}
+.field.has-error > label{color:var(--red)}.field.has-error .input,.field.has-error .stepper{border:1px solid #F98989;background:var(--redTint)}.field-error{display:none;margin-top:4px;color:var(--red);font-size:12px;line-height:16px}.field.has-error .field-error{display:block}.participant-field.has-error .participant-picks{outline:1px solid #F98989;background:var(--redTint);border-radius:8px;padding:8px}.split-choice.has-error .split-tabs{outline:1px solid #F98989;background:var(--redTint)}.stepper{width:100%;justify-content:space-between}.stepper input{flex:1;width:auto;min-width:0}.stepper button{flex:none}@media(max-width:720px){#expenseModal .sheet-top{display:grid;grid-template-columns:44px 1fr 44px}#expenseModal .sheet-top h2{text-align:center;grid-column:2;white-space:nowrap}#expenseModal .expense-back{grid-column:1;grid-row:1}#expenseModal .sheet-close{grid-column:3;grid-row:1}.grid2{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}.grid2>*{min-width:0;overflow:hidden}#eMonth{max-width:100%;min-width:0;width:100%;-webkit-appearance:none;appearance:none}.stepper{width:100%}}
 </style>
 <style>
 /* Ajustes funcionais — visão mensal, ações do cabeçalho e formulário de despesa */
@@ -293,7 +293,7 @@ function updateParticipantPreviews(){
 function renderSplitInputs(){
   let ps=[...document.querySelectorAll('#eParticipants .selected')].map(x=>x.dataset.person),target=document.querySelector('#splitInputs');
   if(splitMode==='equal'){
-    target.innerHTML='<p class="helper">Divisão igual entre as pessoas selecionadas.</p>';
+    target.innerHTML='';
     updateParticipantPreviews();
     return;
   }
