@@ -123,13 +123,13 @@
 .balance-period strong{min-width:0;text-align:center;justify-self:center;font-size:14px}
 .balance-period .mini-iconbtn:first-child{justify-self:start}
 .balance-period .mini-iconbtn:last-child{justify-self:end}
-.balance-simplify{display:none}
+.balance-simplify{display:flex;align-items:center;gap:8px;margin:0;font-size:12px;font-weight:600;color:var(--body);white-space:nowrap}
 @media(max-width:720px){
   .balance-toolbar{position:sticky;top:0;z-index:4;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"title simplify" "period period";gap:8px 12px;margin:0 -16px 10px;padding:10px 16px 12px;background:var(--surface);border-bottom:1px solid var(--line)}
   .balance-toolbar h2{grid-area:title;margin:0;min-width:0;font-size:14px;line-height:20px}
   .balance-toolbar .segment-mini{grid-area:period;display:flex;width:100%;padding:3px}
   .balance-toolbar .segment-mini button{flex:1;height:34px}
-  .balance-simplify{grid-area:simplify;display:flex;align-items:center;gap:8px;margin:0;font-size:12px;font-weight:600;color:var(--body);white-space:nowrap}
+  .balance-simplify{grid-area:simplify}
   .balance-simplify .switch{flex:none}
 }
 </style>
