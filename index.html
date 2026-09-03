@@ -436,7 +436,7 @@ function renderPersonByDate(){
   state.payments.forEach(x=>{
     if(monthFilter&&x.month&&x.month!==monthFilter)return;
     if(x.from===pid||x.to===pid){
-      debtsWithDue.push({from:x.from,to:x.to,amount:-x.amount,dueDate:null,expenseName:'Pagamento',month:x.month});
+      debtsWithDue.push({from:x.from,to:x.to,amount:-x.amount,dueDate:null,expenseName:null,month:x.month});
     }
   });
   let byDate={};
@@ -470,8 +470,10 @@ function renderPersonByDate(){
       localAgg[k].amount+=d.amount;
       if(!allAgg[k])allAgg[k]={from:d.from,to:d.to,amount:0,kind:d.from===pid?'pay':'receive'};
       allAgg[k].amount+=d.amount;
-      if(!localNames[k])localNames[k]=new Set();
-      localNames[k].add(d.expenseName);
+      if(d.expenseName){
+        if(!localNames[k])localNames[k]=new Set();
+        localNames[k].add(d.expenseName);
+      }
     });
     Object.values(localAgg).filter(x=>Math.abs(x.amount)>.005).forEach(x=>{
       let other=getP(x.kind==='pay'?x.to:x.from),
