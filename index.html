@@ -255,6 +255,8 @@ async function fetchData(){
     let j=await r.json();
     let d=j.record;
     if(d&&d.people){state.people=d.people||[];state.expenses=d.expenses||[];state.payments=d.payments||[]}
+    let removed=state.payments.filter(x=>x.id==='pix-jessica');
+    if(removed.length){state.payments=state.payments.filter(x=>x.id!=='pix-jessica');hasUnsavedChanges=true}
     lastSavedAt=new Date();hasUnsavedChanges=false;updateSaveState();render();
   }catch(e){
     try{
@@ -263,6 +265,8 @@ async function fetchData(){
       let j2=await r2.json();
       let d2=j2.record;
       if(d2&&d2.people){state.people=d2.people||[];state.expenses=d2.expenses||[];state.payments=d2.payments||[]}
+      let removed2=state.payments.filter(x=>x.id==='pix-jessica');
+      if(removed2.length){state.payments=state.payments.filter(x=>x.id!=='pix-jessica');hasUnsavedChanges=true}
       lastSavedAt=new Date();hasUnsavedChanges=false;updateSaveState();render();showToast('Carregado do backup');
     }catch(e2){
       if(state.people.length===0){state=structuredClone(demo);render();showToast('Usando dados de exemplo')}
